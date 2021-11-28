@@ -1,8 +1,16 @@
-runtime: python37
+ runtime: python37
 
-handlers:
-- url: /static
-  static_dir: static
+    # [START handlers]
+    handlers:
+    - url: /.*
+      script: auto
 
-- url: /.*
-  script: auto
+    - url: /index.html
+      static_files: templates/index.html
+      upload: templates/index.html
+
+    - url: /templates
+      static_dir: templates
+
+   
+    # [END handlers]
